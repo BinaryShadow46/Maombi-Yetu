@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swahili Prayer Generator</title>
+    <meta name="theme-color" content="#4a6fa5">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-hands-praying"></i>
+                <h1>Swahili Prayer Generator</h1>
+            </div>
+            <p class="subtitle">Umbali wako wa karibu na Mungu</p>
+        </header>
+
+        <div class="main-content">
+            <div class="prayer-card">
+                <div class="prayer-display" id="prayerDisplay">
+                    <h2 id="prayerTitle">Karibu!</h2>
+                    <div class="arabic-text" id="arabicText">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <p class="prayer-text" id="prayerText">
+                        Chagua aina ya maombi hapo chini au unda maombi yako mwenyewe kwa kutumia kijitabu cha kuunda.
+                    </p>
+                    <p class="translation" id="translationText">Kwa jina la Mungu Mwingi wa Rehema Mwenye Kurehemu</p>
+                </div>
+
+                <div class="prayer-controls">
+                    <button class="btn copy-btn" id="copyBtn">
+                        <i class="fas fa-copy"></i> Nakili Maombi
+                    </button>
+                    <button class="btn share-btn" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Shiriki
+                    </button>
+                    <button class="btn voice-btn" id="voiceBtn">
+                        <i class="fas fa-volume-up"></i> Soma Sauti
+                    </button>
+                    <button class="btn favorite-btn" id="favoriteBtn">
+                        <i class="far fa-heart"></i> Weka kwa Favorite
+                    </button>
+                </div>
+            </div>
+
+            <div class="categories">
+                <h3><i class="fas fa-list"></i> Aina za Maombi</h3>
+                <div class="category-grid">
+                    <button class="category-btn" data-category="morning">
+                        <i class="fas fa-sun"></i> Maombi ya Asubuhi
+                    </button>
+                    <button class="category-btn" data-category="evening">
+                        <i class="fas fa-moon"></i> Maombi ya Jioni
+                    </button>
+                    <button class="category-btn" data-category="protection">
+                        <i class="fas fa-shield-alt"></i> Ulinzi
+                    </button>
+                    <button class="category-btn" data-category="healing">
+                        <i class="fas fa-heartbeat"></i> Uponyaji
+                    </button>
+                    <button class="category-btn" data-category="guidance">
+                        <i class="fas fa-compass"></i> Uongofu
+                    </button>
+                    <button class="category-btn" data-category="gratitude">
+                        <i class="fas fa-hands"></i> Shukrani
+                    </button>
+                    <button class="category-btn" data-category="forgiveness">
+                        <i class="fas fa-hand-holding-heart"></i> Msamaha
+                    </button>
+                    <button class="category-btn" data-category="custom">
+                        <i class="fas fa-edit"></i> Unda Maombi Yako
+                    </button>
+                </div>
+            </div>
+
+            <div class="custom-prayer" id="customPrayerSection" style="display: none;">
+                <h3><i class="fas fa-magic"></i> Unda Maombi Yako Mwenyewe</h3>
+                <div class="form-group">
+                    <label for="prayerTopic">Mada ya Maombi:</label>
+                    <input type="text" id="prayerTopic" placeholder="Mfano: Familia, Kazi, Afya...">
+                </div>
+                <div class="form-group">
+                    <label for="prayerDetails">Maelezo ya Maombi:</label>
+                    <textarea id="prayerDetails" rows="3" placeholder="Andika hapa maombi yako..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prayerStyle">Mtindo wa Maombi:</label>
+                    <select id="prayerStyle">
+                        <option value="formal">Rasmi</option>
+                        <option value="personal">Ya Kibinafsi</option>
+                        <option value="poetic">Ya Mashairi</option>
+                        <option value="traditional">Ya Jadi</option>
+                    </select>
+                </div>
+                <button class="btn generate-btn" id="generateCustomBtn">
+                    <i class="fas fa-wand-magic-sparkles"></i> Tunga Maombi
+                </button>
+            </div>
+
+            <div class="favorites-section" id="favoritesSection">
+                <h3><i class="fas fa-star"></i> Maombi Yanayopendwa</h3>
+                <div class="favorites-list" id="favoritesList">
+                    <!-- Favorites will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="app-info">
+                <p><i class="fas fa-mobile-alt"></i> Install as App: Tap <i class="fas fa-share"></i> then "Add to Home Screen"</p>
+            </div>
+            <p class="copyright">© 2024 Swahili Prayer Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="app.js"></script>
+    <script src="prayers.js"></script>
+</body>
+</html>
